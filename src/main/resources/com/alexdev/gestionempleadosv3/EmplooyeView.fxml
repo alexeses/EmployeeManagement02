@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="344.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alexdev.gestionempleadosv3.controller.EmployeeController">
+    <children>
+        <TextField fx:id="empIdText" layoutX="214.0" layoutY="15.0" prefHeight="25.0" prefWidth="67.0" promptText="020" />
+        <Label layoutX="201.0" layoutY="19.0" text="ID" />
+        <Button fx:id="searchEmpBtn" layoutX="203.0" layoutY="56.0" mnemonicParsing="false" onAction="#searchEmployee" prefHeight="25.0" prefWidth="80.0" text="Buscar" />
+        <Button fx:id="deleteEmpBtn" layoutX="382.0" layoutY="56.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="25.0" prefWidth="56.0" text="Borrar" />
+        <Button fx:id="updateEmpBtn" layoutX="292.0" layoutY="56.0" mnemonicParsing="false" onAction="#updateEmployeeEmail" prefHeight="25.0" prefWidth="80.0" text="Actualizar" />
+        <Button fx:id="addEmpBtn" layoutX="14.0" layoutY="99.0" mnemonicParsing="false" onAction="#insertEmployee" prefHeight="25.0" prefWidth="167.0" text="Anadir empleado" />
+        <TextArea fx:id="resultArea" layoutX="14.0" layoutY="129.0" prefHeight="205.0" prefWidth="167.0" wrapText="true" />
+        <TextField fx:id="newEmailText" layoutX="378.0" layoutY="15.0" prefHeight="25.0" prefWidth="120.0" promptText="owner@uem.es" />
+        <Label layoutX="308.0" layoutY="19.0" text="Nuevo mail" />
+        <VBox layoutX="70.0" layoutY="10.0" spacing="4.0">
+         <children>
+                <TextField fx:id="emailText" prefHeight="25.0" prefWidth="111.0" promptText="alex@uem.es" />
+                <TextField fx:id="surnameText" prefHeight="25.0" prefWidth="111.0" promptText="Pérez" />
+                <TextField fx:id="nameText" prefHeight="25.0" prefWidth="111.0" promptText="Pedro" />
+         </children>
+        </VBox>
+        <VBox layoutX="16.0" layoutY="14.0" prefHeight="75.0" prefWidth="58.0" spacing="12.0">
+            <children>
+                <Label text="Nombre" />
+                <Label text="Apellido" />
+                <Label text="Email" />
+            </children>
+        </VBox>
+        <Separator layoutX="187.0" orientation="VERTICAL" prefHeight="333.0" prefWidth="7.0" />
+        <TableView fx:id="employeeTable" editable="true" layoutX="201.0" layoutY="89.0" prefHeight="246.0" prefWidth="386.0" tableMenuButtonVisible="true">
+            <columns>
+                <TableColumn fx:id="empIdColumn" prefWidth="57.0" text="Id" />
+                <TableColumn fx:id="empNameColumn" prefWidth="75.0" text="Nombre" />
+                <TableColumn fx:id="empLastNameColumn" prefWidth="73.0" text="Apellido" />
+                <TableColumn fx:id="empEmailColumn" prefWidth="79.0" text="Email" />
+                <TableColumn fx:id="empPhoneNumberColumn" prefWidth="73.0" text="Telefono" />
+                <TableColumn fx:id="empHireDateColumn" prefWidth="93.0" text="Hire Date" />
+            </columns>
+        </TableView>
+        <Button fx:id="searchEmpsBtn" layoutX="447.0" layoutY="56.0" mnemonicParsing="false" onAction="#searchEmployees" prefHeight="25.0" prefWidth="139.0" text="Buscar todos los EMP" />
+    </children>
+</AnchorPane>
