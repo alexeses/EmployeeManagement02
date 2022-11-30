@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class EmployeeDAO {
 
     public static Employee searchEmployee (String empId) throws SQLException, ClassNotFoundException {
-        String selectStmt = "SELECT * FROM employees WHERE employee_id="+empId;
+        String selectStmt = "SELECT * FROM employees WHERE employee_id = "+empId;
 
         try {
             ResultSet rsEmp = DBUtil.dbExecuteQuery(selectStmt);
@@ -117,14 +117,7 @@ public class EmployeeDAO {
     }
 
     public static void insertEmp (String name, String lastname, String email) throws SQLException, ClassNotFoundException {
-        String updateStmt =
-                "BEGIN\n" +
-                        "INSERT INTO employees\n" +
-                        "(EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, HIRE_DATE, JOB_ID)\n" +
-                        "VALUES\n" +
-                        "(sequence_employee.nextval, '"+name+"', '"+lastname+"','"+email+"', SYSDATE, 'IT_PROG');\n" +
-                        "END;";
-
+        String updateStmt = "INSERT INTO employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, HIRE_DATE, JOB_ID) VALUES (sequence_employee.nextval, " + "'" + name + "'" + ", '" + lastname + "'" + ", '" + email + "'" + ", SYSDATE, 'IT_PROG')";
         try {
             DBUtil.dbExecuteUpdate(updateStmt);
         } catch (SQLException e) {
