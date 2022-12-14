@@ -100,12 +100,7 @@ public class EmployeeDAO {
     }
 
     public static void deleteEmpWithId (String empId) throws SQLException, ClassNotFoundException {
-        String updateStmt =
-                "BEGIN\n" +
-                        "   DELETE FROM employees\n" +
-                        "         WHERE employee_id ="+ empId +";\n" +
-                        "   COMMIT;\n" +
-                        "END;";
+        String updateStmt = "DELETE FROM employees WHERE employee_id = " + empId;
 
         try {
             DBUtil.dbExecuteUpdate(updateStmt);

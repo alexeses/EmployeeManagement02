@@ -135,10 +135,19 @@ public class EmployeeController {
         try {
             EmployeeDAO.insertEmp(nameText.getText(),surnameText.getText(),emailText.getText());
             resultArea.setText("El empleado ha sido insertado");
+            txtClear();
         } catch (SQLException e) {
             resultArea.setText("Ops! Ha ocurrido un error al insertar el empleado");
             throw e;
         }
+    }
+
+    private void txtClear() {
+        nameText.clear();
+        surnameText.clear();
+        emailText.clear();
+        empIdText.clear();
+        newEmailText.clear();
     }
 
     @FXML
@@ -146,6 +155,14 @@ public class EmployeeController {
         try {
             EmployeeDAO.deleteEmpWithId(empIdText.getText());
             resultArea.setText("El empleado con id " + empIdText.getText() + " ha sido eliminado");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Información");
+            alert.setHeaderText("Empleado eliminado");
+            alert.setContentText("El empleado con id " + empIdText.getText() + " ha sido eliminado");
+            alert.showAndWait();
+            txtClear();
+            fillEmployeeTable(actionEvent);
+
         } catch (SQLException e) {
             resultArea.setText("Ops! Ha ocurrido un error al eliminar el empleado con id " + empIdText.getText());
             throw e;
