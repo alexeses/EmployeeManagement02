@@ -125,6 +125,7 @@ public class EmployeeController {
         try {
             EmployeeDAO.updateEmpEmail(empIdText.getText(),newEmailText.getText());
             resultArea.setText("El email del empleado con id " + empIdText.getText() + " ha sido actualizado");
+            fillEmployeeTable(actionEvent);
         } catch (SQLException e) {
             resultArea.setText("Ops! Ha ocurrido un error al actualizar el email del empleado con id " + empIdText.getText());
         }
@@ -136,6 +137,7 @@ public class EmployeeController {
             EmployeeDAO.insertEmp(nameText.getText(),surnameText.getText(),emailText.getText());
             resultArea.setText("El empleado ha sido insertado");
             txtClear();
+            fillEmployeeTable(actionEvent);
         } catch (SQLException e) {
             resultArea.setText("Ops! Ha ocurrido un error al insertar el empleado");
             throw e;
